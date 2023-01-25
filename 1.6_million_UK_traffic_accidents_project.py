@@ -153,8 +153,6 @@ plt.title("The way predictions are made")
 plt.show()
 
 
-
-
 # How did rural and urban areas differ?
 
 q4_data=data.to_numpy()
