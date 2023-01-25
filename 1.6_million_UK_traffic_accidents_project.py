@@ -1,12 +1,13 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 #  DATA PREPARATION
 
-df1 = pd.read_csv('traffic_data.csv') #csv file reading. The "read_..." command changes for different files. eg read_excel, read_json, read_html...
-df2 = pd.read_csv('traffic_data2.csv')
-df3 = pd.read_csv('traffic_data3.csv')
+df1 = pd.read_csv('accidents_2005_to_2007.csv') #csv file reading. The "read_..." command changes for different files. eg read_excel, read_json, read_html...
+df2 = pd.read_csv('accidents_2009_to_2011')
+df3 = pd.read_csv('accidents_2012_to_2014.csv')
 
 df=pd.concat([df1,df2,df3])
 
@@ -54,16 +55,11 @@ plt.bar(graph_x_axis,graph_y_axis)
 Question 2 and 4 an be solve in one program"""
 
 # What increases accident rates?     
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
 
-#  DATA PREPARATION
 
-df1 = pd.read_csv('traffic_data.csv') #csv file reading. The "read_..." command changes for different files. eg read_excel, read_json, read_html...
-df2 = pd.read_csv('traffic_data2.csv')
-df3 = pd.read_csv('traffic_data3.csv')
+df1 = pd.read_csv('accidents_2005_to_2007.csv') #csv file reading. The "read_..." command changes for different files. eg read_excel, read_json, read_html...
+df2 = pd.read_csv('accidents_2009_to_2011')
+df3 = pd.read_csv('accidents_2012_to_2014.csv')
 
 df=pd.concat([df1,df2,df3])
 
@@ -101,14 +97,14 @@ plt.show()
 pedestrian_cond_array=data["Pedestrian_Crossing-Physical_Facilities"].unique()
 pedestrian_cond=data["Pedestrian_Crossing-Physical_Facilities"].value_counts().values
 plt.pie(pedestrian_cond,labels=pedestrian_cond_array,radius=2,startangle=25,textprops={"size":"medium"},autopct='%1.1f%%',explode=(0.02,0.02,0.02,0.02,0.02,1))
-plt.title("Accident percentages by ligth conditions")
+plt.title("Accidents at pedestrian crossings and physical facilities")
 plt.show()
 
 
 speed_cond_array=data["Speed_limit"].unique()
 speed_cond=data["Speed_limit"].value_counts().values
 plt.pie(speed_cond,labels=speed_cond_array,radius=2,startangle=25,textprops={"size":"medium"},autopct='%1.1f%%',explode=(0.02,0.02,0.02,0.02,0.02,0.1,1,1.5))
-plt.title("Accident percentages by ligth conditions")
+plt.title("Speed limit and accident rates")
 plt.show()
 
 day_array=data["Day_of_Week"].unique()
@@ -124,13 +120,13 @@ time_df = pd.DataFrame(time, index=data["Time"])
 time_df.columns =['Number of Accidents']
 time_heat = time_df.groupby('Time').min()
 
-plt.figure(figsize = (20,9),facecolor='grey')
-ax = sns.heatmap(time_heat,cmap="YlGnBu") 
+plt.figure(figsize = (20,9))
+ax = sns.heatmap(time_heat,cmap=sns.cubehelix_palette(as_cmap=True)) 
 plt.yticks(rotation =0)
 plt.show()
 
 # Can we predict accident rates over time?
-df4=pd.read_csv('traffic.csv')
+df4=pd.read_csv('ukTrafficAADF.csv')
 
 df_4=df4.drop(['AADFYear', 'CP','Region', 'LocalAuthority', 'Road', 'RoadCategory', 'Easting',
        'Northing', 'StartJunction', 'EndJunction', 'LinkLength_km',
@@ -157,6 +153,8 @@ plt.title("The way predictions are made")
 plt.show()
 
 
+
+
 # How did rural and urban areas differ?
 
 q4_data=data.to_numpy()
@@ -176,7 +174,6 @@ x_axis=np.array(["urban","rural"])
 plt.bar(x_axis,y_axis)
 plt.title("Average of accident severity of urban and rural areas")
 plt.show()
-
 
 
 
