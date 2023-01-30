@@ -54,6 +54,7 @@ sns.barplot(y=labels19,x=values19).set(title="Top 10 happiest countries in 2019"
 plt.show()
 
 # Which countries or regions rank highest in each of the six factors that contribute to happiness?
+# How did the country rankings or scores change between the 2015-2016 and 2016-2017 reports for the top 10 countries?
 # 6 factors: economic production, social support, life expectancy, freedom, absence of corruption, and generosity
 
 # Economic Production
@@ -225,3 +226,55 @@ yg_axis=(g15,g16,g17,g18,g19)
 plt.barh(xg_axis,yg_axis)
 plt.title("Countries ranked first in happiness due to Generosity by years")
 plt.show()
+
+
+#Has any country experienced a significant increase or decrease in happiness?
+
+co_15_h=df1["Country"].head(20).to_numpy()
+co_15_t=df1["Country"].tail(20).to_numpy()
+
+co_16_h=df1["Country"].head(20).to_numpy()
+co_16_t=df1["Country"].tail(20).to_numpy()
+
+co_17_h=df1["Country"].head(20).to_numpy()
+co_17_t=df1["Country"].tail(20).to_numpy()
+
+co_18_h=df1["Country"].head(20).to_numpy()
+co_18_t=df1["Country"].tail(20).to_numpy()
+
+co_19_h=df1["Country"].head(20).to_numpy()
+co_19_t=df1["Country"].tail(20).to_numpy()
+
+
+for i in range(1,20):
+    if(co_15_t[i] in co_16_h):
+        print("Country"+co_15_t[i]+" was located in the bottom 20 of the list last year, while in 2016, it entered the top 20.")
+    else:
+        print("No country has experienced a good rise.")
+
+for i in range(1,20):
+    if(co_16_t[i] in co_17_h):
+        print("Country"+co_16_t[i]+" was located in the bottom 20 of the list last year, while in 2016, it entered the top 20.")
+    else:
+        print("No country has experienced a good rise.")
+
+
+for i in range(1,20):
+    if(co_17_t[i] in co_18_h):
+        print("Country"+co_17_t[i]+" was located in the bottom 20 of the list last year, while in 2016, it entered the top 20.")
+    else:
+        print("No country has experienced a good rise.")
+
+
+for i in range(1,20):
+    if(co_18_t[i] in co_19_h):
+        print("Country"+co_18_t[i]+" was located in the bottom 20 of the list last year, while in 2016, it entered the top 20.")
+    else:
+        print("No country has experienced a good rise.")
+
+for i in range(1,20):
+    if(co_15_t[i] in co_19_h):
+        print("Country"+co_15_t[i]+" was located in the bottom 20 of the list last year, while in 2016, it entered the top 20.")
+    else:
+        print("No country has experienced a good rise.")
+
