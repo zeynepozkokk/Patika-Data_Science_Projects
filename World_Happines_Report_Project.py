@@ -233,17 +233,17 @@ plt.show()
 co_15_h=df1["Country"].head(20).to_numpy()
 co_15_t=df1["Country"].tail(20).to_numpy()
 
-co_16_h=df1["Country"].head(20).to_numpy()
-co_16_t=df1["Country"].tail(20).to_numpy()
+co_16_h=df2["Country"].head(20).to_numpy()
+co_16_t=df2["Country"].tail(20).to_numpy()
 
-co_17_h=df1["Country"].head(20).to_numpy()
-co_17_t=df1["Country"].tail(20).to_numpy()
+co_17_h=df3["Country"].head(20).to_numpy()
+co_17_t=df3["Country"].tail(20).to_numpy()
 
-co_18_h=df1["Country"].head(20).to_numpy()
-co_18_t=df1["Country"].tail(20).to_numpy()
+co_18_h=df4["Country or region"].head(20).to_numpy()
+co_18_t=df4["Country or region"].tail(20).to_numpy()
 
-co_19_h=df1["Country"].head(20).to_numpy()
-co_19_t=df1["Country"].tail(20).to_numpy()
+co_19_h=df5["Country or region"].head(20).to_numpy()
+co_19_t=df5["Country or region"].tail(20).to_numpy()
 
 
 for i in range(1,20):
@@ -278,3 +278,35 @@ for i in range(1,20):
     else:
         print("No country has experienced a good rise.")
 
+
+for i in range(1,20):
+    if(co_15_h[i] in co_16_t):
+        print("Country"+co_15_h[i]+" was located in the top 20 of the list last year, while in 2016, it entered the bottom 20.")
+    else:
+        print("No country has experienced a important decline.")
+
+for i in range(1,20):
+    if(co_16_h[i] in co_17_t):
+        print("Country"+co_16_h[i]+" was located in the top 20 of the list last year, while in 2016, it entered the bottom 20.")
+    else:
+        print("No country has experienced a important decline.")
+
+
+for i in range(1,20):
+    if(co_17_h[i] in co_18_t):
+        print("Country"+co_17_h[i]+" was located in the top 20 of the list last year, while in 2016, it entered the bottom 20.")
+    else:
+        print("No country has experienced a important decline.")
+
+
+for i in range(1,20):
+    if(co_18_h[i] in co_19_t):
+        print("Country"+co_18_h[i]+" was located in the top 20 of the list last year, while in 2016, it entered the bottom 20.")
+    else:
+        print("No country has experienced a important decline.")
+
+for i in range(1,20):
+    if(co_15_h[i] in co_19_t):
+        print("Country"+co_15_h[i]+" was located in the top 20 of the list last year, while in 2016, it entered the bottom 20.")
+    else:
+        print("No country has experienced a important decline.")
